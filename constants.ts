@@ -21,7 +21,8 @@ export const AI_MODELS = [
   { id: 'gemini-3-pro-image-preview', name: 'Gemini 3 Pro (Ultimate)', type: 'pro' },
   { id: 'gemini-2.5-flash-image', name: 'Gemini 2.5 Flash (Speed)', type: 'fast' },
   { id: 'gemini-nano-banana', name: 'Nano Banana', type: 'fast' },
-  { id: 'imagen-4.0-generate-001', name: 'Imagen 4', type: 'realistic' }
+  { id: 'imagen-4.0-generate-001', name: 'Imagen 4', type: 'realistic' },
+  { id: 'flux-1-schnell', name: 'FLUX.1 (Бесплатная)', type: 'fast' }
 ] as const;
 
 export const CINEMATIC_STYLES = [
