@@ -1,7 +1,7 @@
 export type AspectRatio = '1:1' | '16:9' | '9:16';
 export type ImageCount = 1 | 2 | 4 | 6 | 7;
 export type Language = 'ru' | 'en' | 'es';
-export type AiModel = 'gemini-2.5-flash-image' | 'gemini-3-pro-image-preview' | 'imagen-4.0-generate-001' | 'gemini-nano-banana' | 'veo-3.1-fast-generate-preview';
+export type AiModel = 'gemini-2.5-flash-image' | 'gemini-3-pro-image-preview' | 'imagen-4.0-generate-001' | 'gemini-nano-banana' | 'veo-3.1-fast-generate-preview' | 'flux-1-schnell';
 
 export type RenderingMode = 'raw_realism' | 'nikon_z9';
 
