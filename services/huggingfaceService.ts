@@ -1,10 +1,12 @@
+// Замени hf_ВАШ_ТОКЕН на твой реальный токен (оставь кавычки!)
+const HF_TOKEN = "hf_ВАШ_ТОКЕН"; 
 const API_URL = "/api/hf/models/black-forest-labs/FLUX.1-schnell";
 
 export async function generateImage(promptText: string): Promise<string> {
   try {
     const response = await fetch(API_URL, {
       headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_HF_TOKEN}`, 
+        Authorization: `Bearer ${HF_TOKEN}`, 
         "Content-Type": "application/json",
       },
       method: "POST",
@@ -12,6 +14,8 @@ export async function generateImage(promptText: string): Promise<string> {
     });
 
     if (!response.ok) {
+      const errorData = await response.text();
+      console.error("Детали ошибки от HF:", errorData);
       throw new Error(`Ошибка от сервера: ${response.status}`);
     }
 
