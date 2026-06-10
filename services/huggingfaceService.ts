@@ -1,4 +1,4 @@
-const API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell";
+const API_URL = "/api/hf/models/black-forest-labs/FLUX.1-schnell";
 
 export async function generateImage(promptText: string): Promise<string> {
   try {
