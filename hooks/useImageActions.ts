@@ -9,6 +9,7 @@ import {
   generateImageFusion,
   generateInitialFrame
 } from '../services/geminiService';
+import { generateImage } from '../services/huggingfaceService';
 import { 
   AspectRatio, 
   ImageCount, 
@@ -41,15 +42,12 @@ export const useImageActions = () => {
     setGenerationProgress({ current: 0, total: count });
     
     try {
-      const urls = await generateHyperRealImages(
-        prompt, 
-        ratio, 
-        count, 
-        model, 
-        renderingMode,
-        ref,
-        (current, total) => setGenerationProgress({ current, total })
-      );
+     const urls: string[] = [];
+      for (let i = 0; i < count; i++) {
+        setGenerationProgress({ current: i + 1, total: count });
+        const url = await generateImage(prompt);
+        urls.push(url);
+      }
       
       const newImgs: GeneratedImage[] = urls.map(url => ({
         id: crypto.randomUUID(),
