@@ -1,11 +1,12 @@
-const HF_TOKEN = "hf_ВАШ_ТОКЕН"; 
+const RAW_TOKEN = "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"; 
+const HF_TOKEN = RAW_TOKEN.replace(/[^\x20-\x7E]/g, "").trim();
 const API_URL = "/api/hf/models/black-forest-labs/FLUX.1-schnell";
 
 export async function generateImage(promptText: string): Promise<string> {
   try {
     const response = await fetch(API_URL, {
       headers: {
-        Authorization: `Bearer ${HF_TOKEN}`, 
+        "Authorization": `Bearer ${HF_TOKEN}`, 
         "Content-Type": "application/json",
       },
       method: "POST",
@@ -14,7 +15,7 @@ export async function generateImage(promptText: string): Promise<string> {
 
     if (!response.ok) {
       const errorData = await response.text();
-      console.error("Детали ошибки от HF:", errorData);
+      console.error("HF Error details:", errorData);
       throw new Error(`Ошибка от сервера: ${response.status}`);
     }
 
@@ -22,7 +23,7 @@ export async function generateImage(promptText: string): Promise<string> {
     return URL.createObjectURL(blob); 
 
   } catch (error) {
-    console.error("Ошибка при генерации:", error);
+    console.error("Generation error:", error);
     throw error;
   }
 }
