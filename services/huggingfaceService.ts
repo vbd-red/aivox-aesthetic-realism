@@ -1,4 +1,3 @@
-// Замени hf_ВАШ_ТОКЕН на твой реальный токен (оставь кавычки!)
 const HF_TOKEN = "hf_ВАШ_ТОКЕН"; 
 const API_URL = "/api/hf/models/black-forest-labs/FLUX.1-schnell";
 
